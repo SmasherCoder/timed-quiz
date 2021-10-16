@@ -2,13 +2,13 @@
 let questions = [
     {
     numb: 1,
-    question: "What does HTML stand for?",
-    answer: "Hyper Text Markup Language",
+    question: "Who owns JavaScript?",
+    answer: "Oracle Corporation",
     options: [
-      "Hyper Text Preprocessor",
-      "Hyper Text Markup Language",
-      "Hyper Text Multiple Language",
-      "Hyper Tool Multi Language"
+      "Microsoft",
+      "Google",
+      "Oracle Corporation",
+      "Sun Microsystems"
     ]
   },
     {
@@ -16,57 +16,43 @@ let questions = [
     question: "What does CSS stand for?",
     answer: "Cascading Style Sheet",
     options: [
-      "Common Style Sheet",
-      "Colorful Style Sheet",
+      "Canned Style Sheet",
+      "Cascading Style Sheet",
       "Computer Style Sheet",
-      "Cascading Style Sheet"
+      "Colorful Style Sheet"
     ]
   },
     {
     numb: 3,
-    question: "What does PHP stand for?",
-    answer: "Hypertext Preprocessor",
+    question: "What does API stand for?",
+    answer: "Application Programming Interface",
     options: [
-      "Hypertext Preprocessor",
-      "Hypertext Programming",
-      "Hypertext Preprogramming",
-      "Hometext Preprocessor"
+      "Application Programming Interface",
+      "Applied Programming Interface",
+      "Ample Program Idiom",
+      "Application Process Inteference"
     ]
   },
     {
     numb: 4,
-    question: "What does SQL stand for?",
-    answer: "Structured Query Language",
+    question: "What is bootstrap?",
+    answer: "A frontend framework",
     options: [
-      "Stylish Question Language",
-      "Stylesheet Query Language",
-      "Statement Question Language",
-      "Structured Query Language"
+      "A lace on a boot",
+      "A way to work with databases",
+      "A backend framework",
+      "A frontend framework"
     ]
   },
     {
     numb: 5,
-    question: "What does XML stand for?",
-    answer: "eXtensible Markup Language",
+    question: "Where do you put JavaScript?",
+    answer: "In the head or body sections",
     options: [
-      "eXtensible Markup Language",
-      "eXecutable Multiple Language",
-      "eXTra Multi-Program Language",
-      "eXamine Multiple Language"
+      "In your CSS file",
+      "In the title",
+      "In the head or body sections",
+      "In the images folder"
     ]
   },
-  // you can uncomment the below codes and make duplicate as more as you want to add question
-  // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
-
-  //   {
-  //   numb: 6,
-  //   question: "Your Question is Here",
-  //   answer: "Correct answer of the question is here",
-  //   options: [
-  //     "Option 1",
-  //     "option 2",
-  //     "option 3",
-  //     "option 4"
-  //   ]
-  // },
 ];

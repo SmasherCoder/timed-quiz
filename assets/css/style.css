@@ -8,18 +8,19 @@
 }
 
 body{
-    background: #007bff;
+    background: #ff7b00;
 }
 
 ::selection{
     color: #fff;
-    background: #007bff;
+    background: #ff7b00;
 }
 
 .start_btn,
 .info_box,
 .quiz_box,
-.result_box{
+.result_box
+.highscore_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,9 +29,19 @@ body{
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.highscore_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
-.result_box.activeResult{
+.result_box.activeResult
+.highscore_box.activeScore{
     opacity: 1;
     z-index: 5;
     pointer-events: auto;
@@ -40,17 +51,16 @@ body{
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
-    color: #007bff;
+    color: #000;
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
-    background: #fff;
-    cursor: pointer;
+    background: rgb(248, 252, 4);
 }
 
 .info_box{
-    width: 540px;
+    width: 640px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -65,7 +75,7 @@ body{
     border-bottom: 1px solid lightgrey;
     display: flex;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 50px;
     border-radius: 5px 5px 0 0;
     font-size: 20px;
     font-weight: 600;
@@ -82,7 +92,7 @@ body{
 
 .info_box .info-list .info span{
     font-weight: 600;
-    color: #007bff;
+    color: #ff7b00;
 }
 .info_box .buttons{
     height: 60px;
@@ -103,12 +113,12 @@ body{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #007bff;
+    border: 1px solid #ff7b00;
     transition: all 0.3s ease;
 }
 
 .quiz_box{
-    width: 550px;
+    width: 700px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -136,7 +146,7 @@ body{
 }
 
 .quiz_box header .timer{
-    color: #004085;
+    color: #ff7b00;
     background: #cce5ff;
     border: 1px solid #b8daff;
     height: 45px;
@@ -173,7 +183,7 @@ body{
     bottom: 0px;
     left: 0px;
     height: 3px;
-    background: #007bff;
+    background: #ff7b00;
 }
 
 section{
@@ -287,8 +297,8 @@ footer button{
     outline: none;
     color: #fff;
     border-radius: 5px;
-    background: #007bff;
-    border: 1px solid #007bff;
+    background: #ff7b00;
+    border: 1px solid #ff7b00;
     line-height: 10px;
     opacity: 0;
     pointer-events: none;
@@ -323,7 +333,7 @@ footer button.show{
 
 .result_box .icon{
     font-size: 100px;
-    color: #007bff;
+    color: #ff7b00;
     margin-bottom: 10px;
 }
 
@@ -359,25 +369,39 @@ footer button.show{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #007bff;
+    border: 1px solid #ff7b00;
+    transition: all 0.3s ease;
+}
+
+.highscore_box .buttons button{
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ff7b00;
     transition: all 0.3s ease;
 }
 
 .buttons button.restart{
     color: #fff;
-    background: #007bff;
+    background: #ff7b00;
 }
 
 .buttons button.restart:hover{
-    background: #0263ca;
+    background: #fff;
 }
 
 .buttons button.quit{
-    color: #007bff;
+    color: #ff7b00;
     background: #fff;
 }
 
 .buttons button.quit:hover{
     color: #fff;
-    background: #007bff;
+    background: #ff7b00;
 }
