@@ -8,7 +8,7 @@
 }
 
 body{
-    background: #ff7b00;
+    background: #fff;
 }
 
 ::selection{
@@ -19,29 +19,17 @@ body{
 .start_btn,
 .info_box,
 .quiz_box,
-.result_box
-.highscore_box{
+.result_box{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.highscore_box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);  
-}
 
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
-.result_box.activeResult
-.highscore_box.activeScore{
+.result_box.activeResult{
     opacity: 1;
     z-index: 5;
     pointer-events: auto;
@@ -51,16 +39,22 @@ body{
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
-    color: #000;
-    padding: 15px 30px;
+    color: #fff;
+    padding: 10px 20px;
     outline: none;
     border: none;
     border-radius: 5px;
-    background: rgb(248, 252, 4);
+    background: #511991;
+}
+
+.timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .info_box{
-    width: 640px;
+    width: 1000px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -69,16 +63,8 @@ body{
     transition: all 0.3s ease;
 }
 
-.info_box .info-title{
-    height: 60px;
-    width: 100%;
-    border-bottom: 1px solid lightgrey;
-    display: flex;
-    align-items: center;
-    padding: 0 50px;
-    border-radius: 5px 5px 0 0;
-    font-size: 20px;
-    font-weight: 600;
+.info {
+    font-weight: 500;
 }
 
 .info_box .info-list{
@@ -87,34 +73,37 @@ body{
 
 .info_box .info-list .info{
     margin: 5px 0;
-    font-size: 17px;
+    font-size: 24px;
 }
 
-.info_box .info-list .info span{
-    font-weight: 600;
-    color: #ff7b00;
+
+.info {
+    text-align: center;
 }
-.info_box .buttons{
-    height: 60px;
+
+.info-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info_box .buttons {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 30px;
-    border-top: 1px solid lightgrey;
+    justify-content: center;
 }
 
 .info_box .buttons button{
-    margin: 0 5px;
-    height: 40px;
-    width: 100px;
-    font-size: 16px;
-    font-weight: 500;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
     cursor: pointer;
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #ff7b00;
     transition: all 0.3s ease;
+    background-color: #511991;
+    color: #fff;
+    justify-content: center;
 }
 
 .quiz_box{
@@ -127,28 +116,9 @@ body{
     transition: all 0.3s ease;
 }
 
-.quiz_box header{
-    position: relative;
-    z-index: 2;
-    height: 70px;
-    padding: 0 30px;
-    background: #fff;
-    border-radius: 5px 5px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
-}
-
-.quiz_box header .title{
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.quiz_box header .timer{
-    color: #ff7b00;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+.timer{
+    color: #fff;
+    background: #511991;
     height: 45px;
     padding: 0 8px;
     border-radius: 5px;
@@ -158,13 +128,13 @@ body{
     width: 145px;
 }
 
-.quiz_box header .timer .time_left_txt{
+.timer .time_left_txt{
     font-weight: 400;
     font-size: 17px;
     user-select: none;
 }
 
-.quiz_box header .timer .timer_sec{
+.timer .timer_sec{
     font-size: 18px;
     font-weight: 500;
     height: 30px;
@@ -173,17 +143,8 @@ body{
     border-radius: 5px;
     line-height: 30px;
     text-align: center;
-    background: #343a40;
-    border: 1px solid #343a40;
+    background: #511991; 
     user-select: none;
-}
-
-.quiz_box header .time_line{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 3px;
-    background: #ff7b00;
 }
 
 section{
@@ -192,18 +153,24 @@ section{
 }
 
 section .que_text{
-    font-size: 25px;
+    font-size: 34px;
     font-weight: 600;
 }
 
 section .option_list{
     padding: 20px 0px;
     display: block;   
+    font-weight: 600;
+}
+
+section .option_list .option:hover {
+    background: #c291fa;
+    color: black;
 }
 
 section .option_list .option{
-    background: aliceblue;
-    border: 1px solid #84c5fe;
+    background: #511991;
+    color: #fff;
     border-radius: 5px;
     padding: 8px 15px;
     font-size: 17px;
@@ -212,18 +179,13 @@ section .option_list .option{
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    width: 58%;
 }
 
 section .option_list .option:last-child{
     margin-bottom: 0px;
 }
 
-section .option_list .option:hover{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
-}
 
 section .option_list .option.correct{
     color: #155724;
@@ -252,17 +214,7 @@ section .option_list .option .icon{
     transition: all 0.3s ease;
     line-height: 24px;
 }
-.option_list .option .icon.tick{
-    color: #23903c;
-    border-color: #23903c;
-    background: #d4edda;
-}
 
-.option_list .option .icon.cross{
-    color: #a42834;
-    background: #f8d7da;
-    border-color: #a42834;
-}
 
 footer{
     height: 60px;
@@ -297,8 +249,7 @@ footer button{
     outline: none;
     color: #fff;
     border-radius: 5px;
-    background: #ff7b00;
-    border: 1px solid #ff7b00;
+    background: #511991;
     line-height: 10px;
     opacity: 0;
     pointer-events: none;
@@ -307,7 +258,7 @@ footer button{
 }
 
 footer button:hover{
-    background: #0263ca;
+    background: #c291fa;
 }
 
 footer button.show{
@@ -321,7 +272,7 @@ footer button.show{
     border-radius: 5px;
     display: flex;
     padding: 25px 30px;
-    width: 450px;
+    width: 650px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -331,21 +282,30 @@ footer button.show{
     transition: all 0.3s ease;
 }
 
-.result_box .icon{
-    font-size: 100px;
-    color: #ff7b00;
-    margin-bottom: 10px;
+.result_box .complete_text{
+    font-size: 32px;
+    font-weight: 700;
 }
 
-.result_box .complete_text{
-    font-size: 20px;
+.result_box .highscore_text {
+    font-size: 24px;
+    font-weight: 500;
+    background: #a42834;
+    padding: 10px;
+    color: #fff;
+} 
+
+.result_box .highscore span{
+    display: flex;
+    margin: 10px 0;
+    font-size: 24px;
     font-weight: 500;
 }
 
 .result_box .score_text span{
     display: flex;
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 500;
 }
 
@@ -360,48 +320,32 @@ footer button.show{
 }
 
 .result_box .buttons button{
-    margin: 0 10px;
     height: 45px;
-    padding: 0 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ff7b00;
-    transition: all 0.3s ease;
 }
 
-.highscore_box .buttons button{
-    margin: 0 10px;
-    height: 45px;
-    padding: 0 20px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ff7b00;
-    transition: all 0.3s ease;
+#intials {
+    height: 40px;
 }
 
-.buttons button.restart{
+.buttons label {
+    font-size: 24px;
+    font-weight: 500px;
+    margin-right: 10px;
+}
+
+.buttons button.submit{
     color: #fff;
-    background: #ff7b00;
+    background: #511991;
+    margin-left: 10px;
 }
 
-.buttons button.restart:hover{
-    background: #fff;
-}
 
-.buttons button.quit{
-    color: #ff7b00;
-    background: #fff;
-}
-
-.buttons button.quit:hover{
-    color: #fff;
-    background: #ff7b00;
+.buttons button.submit:hover{
+    color: #000;
+    background: #c291fa;
 }
