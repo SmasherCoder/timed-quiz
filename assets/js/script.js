@@ -8,6 +8,8 @@ const option_list = document.querySelector(".option_list");
 const score_box = document.querySelector(".score_box");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+const clearHighScores_btn = document.querySelector(".clearHighScores");
+const goBack_btn = document.querySelector(".goBack");
 var result = 0;
 var correctAnswer = true;
 var stopTimer = false;
@@ -16,14 +18,14 @@ var timeLeft = 0;
 info_box.classList.add("activeInfo");
 
 // if start button clicked
-start_btn.onclick = ()=>{
+start_btn.onclick = () => {
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.add("activeQuiz"); //show quiz box
     showQuestions(0); //calling showQestions function
     startTimer(60); //calling startTimer function
 }
 
-let timeValue =  60;
+let timeValue = 60;
 let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
@@ -35,101 +37,101 @@ const correctWrong = document.querySelector("footer .correctWrong");
 
 
 // getting questions and options from array
-function showQuestions(index){
+function showQuestions(index) {
     const que_text = document.querySelector(".que_text");
 
     let correctWrongTag = '<span> </span>';
     correctWrong.innerHTML = correctWrongTag;  //adding new span tag inside bottom_ques_counter
 
     //creating a new span and div tag for question and option and passing the value using array index
-    let que_tag = '<span>'+ questions[index].question +'</span>';
-    let option_tag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
-    + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
-    + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
-    + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
+    let que_tag = '<span>' + questions[index].question + '</span>';
+    let option_tag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[1] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[2] + '</span></div>'
+        + '<div class="option"><span>' + questions[index].options[3] + '</span></div>';
     que_text.innerHTML = que_tag; //adding new span tag inside que_tag
     option_list.innerHTML = option_tag; //adding new div tag inside option_tag
-    
+
     const option = option_list.querySelectorAll(".option");
 
     // set onclick attribute to all available options
-    for(i=0; i < option.length; i++){
+    for (i = 0; i < option.length; i++) {
         option[i].setAttribute("onclick", "optionSelected(this)");
     }
 }
 
 
 //if user clicked on option
-function optionSelected(answer){
+function optionSelected(answer) {
     let userAns = answer.textContent; //getting user selected option
     let correcAns = questions[que_count].answer; //getting correct answer from array
     const allOptions = option_list.children.length; //getting all option items
-    
-    if(userAns == correcAns){ //if user selected option is equal to array's correct answer
+
+    if (userAns == correcAns) { //if user selected option is equal to array's correct answer
         userScore += 10; //gets 10 points for each correct answer
         console.log("Correct Answer");
         console.log("Your correct answers = " + userScore);
         let correctWrongTag = '<span>Correct!</span>';
         correctWrong.innerHTML = correctWrongTag;  //adding new span tag inside bottom_ques_counter
-        if(que_count < questions.length - 1){ //if question count is less than total question length
+        if (que_count < questions.length - 1) { //if question count is less than total question length
             que_count++; //increment the que_count value
             que_numb++; //increment the que_numb value
-            setTimeout(function(){showQuestions(que_count);}, 1000); //calling showQestions function
+            setTimeout(function () { showQuestions(que_count); }, 1000); //calling showQestions function
             //queCounter(que_numb); //passing que_numb value to queCounter
-        }else{
+        } else {
             console.log("You got " + timeCount.textContent + " points for time left and " + userScore + " points for correct answers.");
             stopTimer = true;
             result = userScore + (parseInt(timeCount.textContent));
-            setTimeout(function(){showResult();}, 1000); //calling showResult function
+            setTimeout(function () { showResult(); }, 1000); //calling showResult function
         }
-    }else{
+    } else {
         userScore -= 5; //gets 5 points taken off for a wrong answer
         console.log("Wrong Answer");
         let correctWrongTag = '<span>Wrong!</span>';
         correctAnswer = false; //sets correctAnswer to false so it duducts 10 seconds in timer
         correctWrong.innerHTML = correctWrongTag;  //adding new span tag inside bottom_ques_counter
-        if(que_count < questions.length - 1){ //if question count is less than total question length
+        if (que_count < questions.length - 1) { //if question count is less than total question length
             que_count++; //increment the que_count value
             que_numb++; //increment the que_numb value
-            setTimeout(function(){showQuestions(que_count);}, 1000); //calling showQestions function
-        }else{
+            setTimeout(function () { showQuestions(que_count); }, 1000); //calling showQestions function
+        } else {
             console.log("You got " + timeCount.textContent + " points for time left and " + userScore + " points for correct answers.");
             stopTimer = true;
             result = userScore + (parseInt(timeCount.textContent));
-            setTimeout(function(){showResult();}, 1000); //calling showResult function
+            setTimeout(function () { showResult(); }, 1000); //calling showResult function
         }
     }
-    for(i=0; i < allOptions; i++){
+    for (i = 0; i < allOptions; i++) {
         option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
     }
     return correctAnswer;
 }
 
-function showResult(){
+function showResult() {
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     score_box.classList.remove("activeResult"); //hide the score box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    if (result < 3){
+    if (result < 3) {
         result = 0;
     }
-    if (userScore < 0){
+    if (userScore < 0) {
         result = 0;
     }
-    let scoreTag = '<span>Your final score is  <p>'+ result +'</p>.</span>';
-        scoreText.innerHTML = scoreTag;
+    let scoreTag = '<span>Your final score is  <p>' + result + '</p>.</span>';
+    scoreText.innerHTML = scoreTag;
 }
 
-function startTimer(time){
+function startTimer(time) {
     clearInterval();
     counter = setInterval(timer, 1000);
-    function timer(){
+    function timer() {
         timeCount.textContent = time; //changing the value of timeCount with time value
 
         time--; //decrement the time value
 
-        if(time < 0 && stopTimer == false){ //if timer is less than 0
+        if (time < 0 && stopTimer == false) { //if timer is less than 0
             timeCount.textContent = 00;
             result = userScore;
             showResult();
@@ -146,7 +148,7 @@ function startTimer(time){
 }
 
 // if submit button clicked
-submit.onclick = ()=>{
+submit.onclick = () => {
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     score_box.classList.add("activeResult"); //show the score box
@@ -163,19 +165,67 @@ submit.onclick = ()=>{
         intials: intials,
         score: result
     };
-    console.log(score);
     hsarray.push(score);
     hsarray.sort((a, b) => b.score - a.score);
     hsarray.splice(5);
 
     localStorage.setItem("hsarray", JSON.stringify(hsarray));
 
-    console.log(localStorage);
+    var hs = hsarray.map(getScores);
 
-//    highScoresList.innerHTML =
-//    hsarray.map(score => {
-//        var garbage = '<li>'+ score.intials + "-" +  score.score '</li>';
-//        highScoresList.innerHTML = garbage;
-//})
-//.join("");
+
+    //write scores to <li> in .score_box
+    const hhscore1 = hs[0];
+    document.getElementById("score1").innerHTML = "1. " + hhscore1;
+    if (hs[1]) {
+        var hhscore2 = hs[1];
+        document.getElementById("score2").innerHTML = "2. " + hhscore2;
+    } else {
+        var hhscore2 = " ";
+        document.getElementById("score2").innerHTML = "2. " + hhscore2;
+    }
+    if (hs[2]) {
+        var hhscore3 = hs[2];
+        document.getElementById("score3").innerHTML = "3. " + hhscore3;
+    } else {
+        var hhscore3 = " ";
+        document.getElementById("score3").innerHTML = "3. " + hhscore3;
+    }
+    if (hs[3]) {
+        var hhscore4 = hs[3];
+        document.getElementById("score4").innerHTML = "4. " + hhscore3;
+    } else {
+        var hhscore4 = " ";
+        document.getElementById("score4").innerHTML = "4. " + hhscore4;
+    }
+    if (hs[4]) {
+        var hhscore5 = hs[4];
+        document.getElementById("score5").innerHTML = "5. " + hhscore3;
+    } else {
+        var hhscore5 = " ";
+        document.getElementById("score5").innerHTML = "5. " + hhscore5;
+    }
+
+    // If clear high scores button is clicked it clears local storage and makes high score board empty
+    clearHighScores_btn.onclick = () => {
+        localStorage.clear();
+        const hhscore1 = " ";
+        document.getElementById("score1").innerHTML = "1. " + hhscore1;
+        const hhscore2 = " ";
+        document.getElementById("score2").innerHTML = "2. " + hhscore2;
+        const hhscore3 = " ";
+        document.getElementById("score3").innerHTML = "3. " + hhscore3;
+        const hhscore4 = " ";
+        document.getElementById("score4").innerHTML = "4. " + hhscore4;
+        const hhscore5 = " ";
+        document.getElementById("score5").innerHTML = "5. " + hhscore5;
+    };
+
+    goBack_btn.onclick = () => {
+        location.reload();
+    };
+
+        function getScores(scor) {
+        return [scor.intials, scor.score].join("-");
+    }
 }
