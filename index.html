@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timed Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- FontAwesome CDN Link for Icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-    <!-- start Quiz button -->
-    <div class="start_btn"><button>Start</button></div>
+    <!-- Timer -->
+    <div class="timer" id="timer">
+        <div class="time_left_txt">Time Left:</div>
+        <div class="timer_sec" id="timerSec">60</div>
+    </div>
 
     <!-- Info Box -->
     <div class="info_box">
@@ -21,13 +22,8 @@
             <div class="info">by ten seconds!</div>
         </div>
         <div class="buttons">
-            <button class="restart">Start Quiz</button>
+            <button class="start">Start Quiz</button>
         </div>
-    </div>
-
-    <div class="timer">
-        <div class="time_left_txt">Time Left:</div>
-        <div class="timer_sec">60</div>
     </div>
 
     <!-- Quiz Box -->
@@ -43,10 +39,9 @@
 
         <!-- footer of Quiz Box -->
         <footer>
-            <div class="total_que">
-                <!-- Here I've inserted Question Count Number from JavaScript -->
+            <div class="correctWrong">
+                <!-- Here I've inserted correct or wrong from JavaScript -->
             </div>
-            <button class="next_btn">Next Que</button>
         </footer>
     </div>
 
@@ -63,7 +58,19 @@
         </div>
     </div>
 
-
+    <!-- High Scores Box -->
+    <div class="score_box">
+        <div class="highscore_text">High Scores</div>
+        <div class="leaderBoard">
+            <ol id="highScores">
+            <!-- Here I've inserted Score Result from JavaScript -->
+            </ol>
+        </div>
+        <div class="buttons">
+            <button class="goBack">Go Back</button>
+            <button class="clearHighScores">Clear High Scores</button>
+        </div>
+    </div>
 
 
     <!-- Inside this JavaScript file I've inserted Questions and Options only -->
@@ -71,6 +78,7 @@
 
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->
     <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </body>
 </html>
